@@ -238,7 +238,8 @@ def main():
                   "fs": sf_.FS, "win_s": sf_.WIN_S, "feature_version": sf_.FEATURE_VERSION,
                   "n_features": X.shape[1], "trained": time.strftime("%Y-%m-%d %H:%M")})
     model["mobile"] = bool(args.mobile)
-    joblib.dump(model, MP, compress=3)
+    from sigid_core import slim
+    joblib.dump(slim(model), MP, compress=3)
     print("Modelo salvo em", os.path.relpath(MP, ROOT), report)
 
 

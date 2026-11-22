@@ -8,12 +8,12 @@ PACTOR, DMR, POCSAG, SSTV, WEFAX, radares OTH, estações de números e mais: **
 | | Windows (PC) | Android |
 |---|---|---|
 | Entrada | placa de som / cabo virtual (VB-Cable) do SDR | microfone do celular perto do alto-falante do rádio |
-| Download | `SigID-Shazam-Setup-1.0.0.exe` | `SigID-Shazam-1.0.0.apk` |
+| Download | [**SigID-Shazam-Setup-1.0.0.exe**](https://github.com/lualcorreia/SigID-Shazam/raw/main/downloads/SigID-Shazam-Setup-1.0.0.exe) (81 MB) | [**SigID-Shazam-1.0.0.apk**](https://github.com/lualcorreia/SigID-Shazam/raw/main/downloads/SigID-Shazam-1.0.0.apk) (29,7 MB) |
 | Modelo | treinado em áudio de linha | treinado com simulação alto-falante → sala → microfone |
 | Requisitos | Windows 10/11 64 bits | Android 7.0+ |
 | Internet | não precisa | não precisa (só para abrir o sigidwiki) |
 
-➡️ **[Baixar na página de Releases](../../releases/latest)**
+➡️ **[Instruções de instalação e checksums](downloads/)**
 
 ## O que ele faz
 
@@ -67,7 +67,7 @@ cd pc
 python -m venv .venv && .venv\Scripts\pip install -r requirements.txt
 .venv\Scripts\python sigid_download.py      :: baixa as amostras do sigidwiki (~1,4 GB, respeita o limite do site)
 .venv\Scripts\python qrg_hints.py --update  :: listas do QRGBuscador
-.venv\Scripts\python train.py               :: modelo PC (ou baixe sigid_model.joblib da Release para models\)
+.venv\Scripts\python train.py               :: modelo PC (ou copie downloads\sigid_model.joblib para models\)
 .venv\Scripts\python train.py --mobile      :: modelo Android
 .venv\Scripts\python app.py
 packaging\build_installer.bat               :: gera o instalador

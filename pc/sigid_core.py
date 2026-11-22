@@ -37,6 +37,22 @@ def fit_model(X, y, n_mlp=1, seed=0):
     return {"scaler": sc, "mlps": mlps, "pca": pca, "knn": knn, "classes": list(classes)}
 
 
+_TRAIN_ONLY = ("_optimizer", "_best_coefs", "_best_intercepts", "loss_curve_", "validation_scores_",
+               "_no_improvement_count", "best_loss_", "best_validation_score_")
+
+
+def slim(model):
+    """Remove do modelo o que só serve para treinar (estado do Adam, cópias do early stopping)."""
+    for m in list(model.get("mlps", [])) + ([model["mod"]] if "mod" in model else []):
+        for a in _TRAIN_ONLY:
+            if hasattr(m, a):
+                try:
+                    delattr(m, a)
+                except AttributeError:
+                    pass
+    return model
+
+
 def _temper(p, T):
     """Escala de temperatura: redes neurais costumam ser confiantes demais."""
     q = np.power(np.clip(p, 1e-12, 1), 1.0 / T)

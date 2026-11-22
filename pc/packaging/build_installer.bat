@@ -22,6 +22,14 @@ echo == PyInstaller ==
   app.py
 if errorlevel 1 goto erro
 
+echo == Enxugando: OpenGL por software e traducoes do Qt (app nao usa) ==
+set QT=packaging\dist\SigID Shazam\_internal\PyQt6\Qt6
+del /q "%QT%\bin\opengl32sw.dll" 2>nul
+for %%f in ("%QT%\translations\*.qm") do (
+  echo %%~nf | findstr /i /r "_pt_BR _en" >nul || del /q "%%f"
+)
+del /q "packaging\dist\SigID Shazam\_internal\data\qrg\qrg_index.pkl" 2>nul
+
 echo == Inno Setup ==
 "%ISCC%" "packaging\installer.iss"
 if errorlevel 1 goto erro
