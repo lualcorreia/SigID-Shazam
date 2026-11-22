@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SigID" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">#1E88E5</item>
+        <item name="colorSecondary">#4FC3F7</item>
+        <item name="android:windowBackground">#16171B</item>
+        <item name="android:statusBarColor">#16171B</item>
+        <item name="android:navigationBarColor">#16171B</item>
+    </style>
+</resources>

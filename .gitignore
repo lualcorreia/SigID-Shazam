@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.log
+*.err
+
+# dados baixados/gerados (áudios do sigidwiki não são redistribuídos)
+pc/data/
+pc/recordings/
+pc/models/*.joblib
+pc/packaging/build/
+pc/packaging/dist/
+pc/packaging/output/
+pc/mic_sim_exemplo.wav
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/*.apk
+.idea/
+*.iml

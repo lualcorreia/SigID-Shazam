@@ -1,0 +1,1 @@
+﻿Coloque aqui sigid_model.joblib (e sigid_model_mobile.joblib), baixados da Release ou gerados por train.py.
